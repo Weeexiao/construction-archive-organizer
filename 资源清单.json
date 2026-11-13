@@ -1,16 +1,22 @@
 {
   "skill": "construction-archive-organizer",
+  "version": "1.1.0",
   "reference_PDF_count": 10,
   "files": [
     {
       "path": "README.md",
-      "bytes": 1312,
-      "sha256": "b878740e98af7b3e4557b4de45ecbdb7572bb4d4294996aa88cfeac1a59a0b9a"
+      "bytes": 2243,
+      "sha256": "818eec792e1c2889d9af6a4da47a2fa3841a2642ecdd8699bc025dea99905e20"
     },
     {
       "path": "SKILL.md",
-      "bytes": 5917,
-      "sha256": "5a307c00dcbf3a219e938abf3bf4318f8732d00507f3a2e22055968e409ea9f8"
+      "bytes": 6940,
+      "sha256": "bf004c165e8ed9e7665fdbd347f784ba78f8aa7ab05cbf3c54d84242ccee86c3"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 7,
+      "sha256": "6ca2e3356014241331fb2b399428fca23c558e3f3d428edcf4f56eb0fe907069"
     },
     {
       "path": "agents/openai.yaml",
@@ -18,9 +24,14 @@
       "sha256": "f664122e92bfeb6ab0255d83f3ef803b2505f049dc9ba2107bea509afe49e82b"
     },
     {
+      "path": "references/incremental.md",
+      "bytes": 7993,
+      "sha256": "14726b30eafffe8d4948f7857648828714abafbf2ae4930686fd158d525ff390"
+    },
+    {
       "path": "references/workflow.md",
-      "bytes": 7546,
-      "sha256": "096a1f2b2d210277f63b170e7334a2854c9c37f224f5734ba1de2f02ff4ce511"
+      "bytes": 8209,
+      "sha256": "715ce183eb0270e4cf5f9b3a9169008117b9ec0d84f978c1c036ab844defa9e7"
     },
     {
       "path": "references/管理办法全文.txt",
@@ -28,14 +39,39 @@
       "sha256": "909fd5f203d040b432878001fa9449c58c3a76090a83e7a6b508764fd0b13772"
     },
     {
+      "path": "scripts/archive_checks.py",
+      "bytes": 5914,
+      "sha256": "63a5cc854e6f5615f07d9e51635e3745810606e94cb6d8007e0a5f72911224b5"
+    },
+    {
+      "path": "scripts/archive_common.py",
+      "bytes": 2206,
+      "sha256": "553c69eb65d431a0ed45f0e57e8f0df8da5b212a64e349190856aac51298cf3a"
+    },
+    {
       "path": "scripts/archive_runtime.py",
-      "bytes": 12088,
-      "sha256": "276ae43bb4b12ae4455812ccb82e3e84b5cd9b598005f738f67a5f4d06cc26f4"
+      "bytes": 17589,
+      "sha256": "b45e0cbd2cf99134d237dff9e60ef6e1f6162a41a61351fe40eaaab3ee6a3c7a"
     },
     {
       "path": "scripts/build_workbook.mjs",
       "bytes": 4486,
       "sha256": "5d598b32cdab249ec87a870d1b6b4b4b95c0663e760597fa19d12e8beb5c06c5"
+    },
+    {
+      "path": "scripts/doctor.py",
+      "bytes": 1538,
+      "sha256": "faf4355cb09b2fff44baa25e97f75e0718d3686890a3cbb6b0145c8a5d397891"
+    },
+    {
+      "path": "scripts/import_legacy.py",
+      "bytes": 3155,
+      "sha256": "685f8f9d3382a3fd1f78bf97f02fa81dc941d4b604de17b7aa7e87a8e634b01b"
+    },
+    {
+      "path": "scripts/incremental.py",
+      "bytes": 17687,
+      "sha256": "40fd4fbc2953d6d76b0048742a6f78abc39248ef5cabc159f604d916d542e2f6"
     },
     {
       "path": "scripts/prepare.py",
@@ -54,8 +90,18 @@
     },
     {
       "path": "scripts/verify_workbook.py",
-      "bytes": 2279,
-      "sha256": "e5239e2b015b8f21e6925b0c2dafef7bf54cbd2e9c39349d6630a2760c82936e"
+      "bytes": 3843,
+      "sha256": "9a492b815bc3e709c14b570f982c23930d55654c7e32920817c9f0d0445b2244"
+    },
+    {
+      "path": "tests/README.md",
+      "bytes": 823,
+      "sha256": "79933eed4582b3e30225f1d3cf42cdad47631d212dd52704e53f9d63c7f57529"
+    },
+    {
+      "path": "tests/test_workflows.py",
+      "bytes": 13962,
+      "sha256": "6f1a7b28c01552aa59a9ab93b9bab3961221bd391be8987cefd2c71249000ca2"
     },
     {
       "path": "assets/references/原始三级目录示例.xlsx",

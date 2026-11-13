@@ -1,5 +1,7 @@
 # 执行说明和数据格式
 
+已有项目补充资料、保留人工修改、同名修订件和中断恢复，先读[incremental.md](incremental.md)。首次整理按本文件执行，完成后登记项目状态。
+
 ## 运行环境
 
 使用当前Codex提供的Python、Node及`@oai/artifact-tool`，不要固定任何电脑的盘符、用户名、运行时版本。Python依赖见`scripts/requirements.txt`；缺少时安装到本任务独立环境，不修改全局或内置运行时。OCR模型由RapidOCR包自带，CPU可运行，有兼容GPU时可加速。宋体优先取当前电脑字体，缺少时封面使用PyMuPDF内置中文字体并检查是否满足用户版式要求。
@@ -56,7 +58,9 @@ Node在任务独立目录建立`node_modules`链接到当前运行时包目录�
       "date": "20240101",
       "page_ref": "1-3",
       "creator": "实际检测机构全称",
-      "creator_evidence": "源PDF第3页，试验检测单位名称栏及印章",
+      "creator_evidence": [{"page":3,"kind":"issuer_heading","unit":"实际检测机构全称","quote":"试验检测单位名称：实际检测机构全称","confidence":"high"}],
+      "page_ref_system": "electronic",
+      "source_pdf_pages": [3,4,5],
       "retention": "永久",
       "retention_basis": "管理办法6.1.5",
       "notes": "页号为本次电子正文索引，原报告页码保留"
@@ -83,6 +87,8 @@ python scripts/archive_runtime.py audit reviewed_manifest.json --workbook 最终
 ```
 
 仅更新责任者等目录字段时使用`build --metadata-only`，避免再次生成、加印PDF页码。已有PDF无需因补目录字段重做。可使用模板原有六表，不能增加一个“汇总”工作表代替缺失的移交表。
+
+制作过程中默认保存检查点，同一工作目录重跑会核验并跳过已完成卷。半成品从原始扫描件重建，不从已加过页码的成品继续叠加。仅因元数据改变需要重建已有PDF时，使用`--refresh`保留备份；被外部改动的PDF不自动覆盖。
 
 ## 验收
 

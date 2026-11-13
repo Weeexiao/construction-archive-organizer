@@ -6,7 +6,7 @@
 
 **[前往 Releases 下载完整技能包](https://github.com/Weeexiao/construction-archive-organizer/releases/latest)**
 
-下载附件“construction-archive-organizer-v1.0.0.zip”，解压后将整个`construction-archive-organizer`文件夹放入本机`~/.codex/skills/`目录，重新打开Codex会话即可调用。
+下载附件“construction-archive-organizer-v1.1.0.zip”，解压后将整个`construction-archive-organizer`文件夹放入本机`~/.codex/skills/`目录，重新打开Codex会话即可调用。
 
 完整包约749MB，已包含全部业务参考资料。仓库保存技能说明、脚本、六表模板、示例目录及管理制度；10份较大的完整参考PDF随Release安装包分发。使用完整安装包即可取得所有资源，无需再寻找外部参考文件。
 
@@ -52,3 +52,13 @@
 
 已使用真实资质证书扫描件验证清点、OCR、封面替换、正文页码、六表导出及对应关系核验。技能中的目录示例已补齐案卷与卷内责任者，公司名称统一为“九建公司”。
 
+## v1.1.0 优化
+
+- 增量补充自动接续档号，按哈希跳过重复件，同名不同内容单列修订候选。
+- 读取当前Excel与上次生成快照，保留人工修改的题名、责任者、编号、日期及备注；冲突不覆盖。
+- 责任者保存材料证据，原档案页号、源PDF页序、最终PDF页序、电子页码分别记录。
+- 已完成PDF可核验后跳过，制作或发布中断后可恢复，避免重复加封面、加页码。
+- 已解决的问题退出当前核对清单，保留历史；提供依赖及资源完整性检查。
+- 保留六表样式、九建公司默认归属及全部10份完整参考PDF。已通过17项隔离场景验证。
+
+详细步骤见[增量与人工修改保护](references/incremental.md)。用户仍只需提供扫描件路径，其余由Codex执行。

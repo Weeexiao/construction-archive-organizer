@@ -1,1 +1,1 @@
-e3707300e48159389dfc2b8074de8f9d4196ed81d91e0ef21f928bc23c2ff37f  construction-archive-organizer-v1.0.0.zip
+d3e4c1a46d59f8779d177d47828caaadc322e993c238d50e956fca02e5f9fb52  construction-archive-organizer-v1.1.0.zip
