@@ -6,7 +6,7 @@
 
 **[前往 Releases 下载完整技能包](https://github.com/Weeexiao/construction-archive-organizer/releases/latest)**
 
-下载附件“construction-archive-organizer-v1.1.0.zip”，解压后将整个`construction-archive-organizer`文件夹放入本机`~/.codex/skills/`目录，重新打开Codex会话即可调用。
+下载附件“construction-archive-organizer-v1.1.1.zip”，解压后将整个`construction-archive-organizer`文件夹放入本机`~/.codex/skills/`目录，重新打开Codex会话即可调用。
 
 完整包约749MB，已包含全部业务参考资料。仓库保存技能说明、脚本、六表模板、示例目录及管理制度；10份较大的完整参考PDF随Release安装包分发。使用完整安装包即可取得所有资源，无需再寻找外部参考文件。
 
@@ -62,3 +62,4 @@
 - 保留六表样式、九建公司默认归属及全部10份完整参考PDF。已通过17项隔离场景验证。
 
 详细步骤见[增量与人工修改保护](references/incremental.md)。用户仍只需提供扫描件路径，其余由Codex执行。
+
