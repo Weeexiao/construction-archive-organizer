@@ -6,11 +6,18 @@ def write(p,obj):Path(p).write_text(json.dumps(obj,ensure_ascii=False,indent=2),
 def inventory(source,work):
  source=Path(source).resolve();work=Path(work).resolve();work.mkdir(parents=True,exist_ok=True)
  assert source!=work and not work.is_relative_to(source),'工作目录应放在输入目录外，避免再次扫描输出'
- files=[source]if source.is_file()else sorted(source.rglob('*'));found=[];issues=[]
+ files=[source]if source.is_file()else sorted(source.rglob('*'));found=[];issues=[];companions=[]
  for p in files:
   if not p.is_file():continue
   ext=p.suffix.lower()
-  if ext=='.zip':
+  if ext in {'.rar','.7z'}:
+   try:
+    from raw_images import extract
+    dest=extract(p,work/'解包'/(p.stem+'-'+hashlib.sha256(str(p).encode()).hexdigest()[:8]))
+    found.extend(x for x in dest.rglob('*') if x.suffix.lower()=='.pdf' or x.suffix.lower() in {'.jpg','.jpeg','.png','.tif','.tiff','.bmp'})
+    companions.extend(str(x) for x in dest.rglob('*') if x.suffix.lower() in {'.xlsx','.xls','.docx','.doc'})
+   except Exception as e:issues.append({'file':str(p),'issue':str(e),'action':'停止纳入该压缩包，不忽略缺件'})
+  elif ext=='.zip':
    dest=work/'解包'/p.stem;dest.mkdir(parents=True,exist_ok=True)
    try:
     with zipfile.ZipFile(p)as z:
@@ -20,12 +27,27 @@ def inventory(source,work):
      bad=z.testzip()
      if bad:raise ValueError('CRC失败：'+bad)
      z.extractall(dest)
+    companions.extend(str(x) for x in dest.rglob('*') if x.suffix.lower() in {'.xlsx','.xls','.docx','.doc'})
     found.extend(x for x in dest.rglob('*.pdf'))
     for x in dest.rglob('*'):
      if x.suffix.lower()in['.jpg','.jpeg','.png','.tif','.tiff','.bmp']:found.append(x)
    except Exception as e:issues.append({'file':str(p),'issue':str(e),'action':'压缩包不完整或格式不支持，停止自动纳入；可用7-Zip按成员完整性检查后单独恢复，需补件'})
   elif ext in['.pdf','.jpg','.jpeg','.png','.tif','.tiff','.bmp']:found.append(p)
+  elif ext in {'.xlsx','.xls','.docx','.doc'}:companions.append(str(p))
+ # A folder of scans is a source bundle, not one volume per image. Review boundaries after OCR.
+ from raw_images import assemble,natural,IMAGE
+ groups={};pdfs=[]
+ for p in dict.fromkeys(found):
+  if p.suffix.lower() in IMAGE:groups.setdefault(p.parent,[]).append(p)
+  else:pdfs.append(p)
  rows=[]
+ for parent,images in groups.items():
+  # assemble recursively only when all descendant image directories belong to this input set.
+  try:
+   allrows=assemble(parent,work/'图像归并'/hashlib.sha256(str(parent).encode()).hexdigest()[:12])
+   rows.extend(r for r in allrows if Path(r['source'])==parent)
+  except Exception as e:issues.append({'file':str(parent),'issue':str(e)})
+ found=sorted(pdfs,key=natural)
  for i,p in enumerate(dict.fromkeys(found),1):
   try:
    pdf=p
@@ -38,7 +60,7 @@ def inventory(source,work):
     if doc.is_repaired:issues.append({'file':str(p),'issue':'PDF打开时被修复，应另行检查完整性'})
     rows.append({'id':f'scan-{i:05}','source':str(p),'pdf':str(pdf),'pages':len(doc),'bytes':p.stat().st_size,'sha256':hashlib.file_digest(p.open('rb'),'sha256').hexdigest()})
   except Exception as e:issues.append({'file':str(p),'issue':str(e)})
- write(work/'input_inventory.json',{'files':rows,'issues':issues});print(f'可读{len(rows)}份，异常{len(issues)}项。清单：{work / "input_inventory.json"}')
+ write(work/'input_inventory.json',{'files':rows,'companion_documents':sorted(set(companions)),'issues':issues});print(f'可读{len(rows)}份，辅助目录/信息{len(set(companions))}份，异常{len(issues)}项。清单：{work / "input_inventory.json"}')
 def ocr(inventory,work,mode,pages_arg=None):
  import numpy as np
  work=Path(work).resolve();out=work/'OCR';out.mkdir(parents=True,exist_ok=True);engine=None

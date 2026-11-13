@@ -13,7 +13,7 @@ def check(deep=False):
    elif p.stat().st_size!=e['bytes']:problems.append('资源大小不符：'+e['path'])
    elif deep and sha(p)!=e['sha256']:problems.append('资源哈希不符：'+e['path'])
  pdfs=list((ROOT/'assets/references/参考PDF').glob('*.pdf'))
- if len(pdfs)!=10:problems.append('完整参考PDF应为10份；GitHub代码快照不含大型PDF，请下载Release完整包')
+ if not pdfs:problems.append('缺精简版PDF版式示例')
  for module in ['pymupdf','numpy','rapidocr_onnxruntime']:
   if importlib.util.find_spec(module)is None:problems.append('缺Python依赖：'+module)
  result={'version':(ROOT/'VERSION').read_text('utf-8').strip()if(ROOT/'VERSION').exists()else'unknown','reference_pdfs':len(pdfs),'ok':not problems,'issues':problems,'node':'请用当前Codex的依赖定位工具提供Node与@oai/artifact-tool；不修改系统环境'};print(json.dumps(result,ensure_ascii=False,indent=2));return result

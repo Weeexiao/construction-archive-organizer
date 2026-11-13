@@ -3,4 +3,3 @@ __pycache__/
 node_modules/
 *.inspect.ndjson
 *.zip
-assets/references/参考PDF/*.pdf

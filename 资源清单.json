@@ -1,32 +1,57 @@
 {
   "skill": "construction-archive-organizer",
-  "version": "1.1.1",
-  "reference_PDF_count": 10,
+  "version": "1.2.0",
+  "reference_PDF_count": 1,
   "files": [
-    {
-      "path": "README.md",
-      "bytes": 2243,
-      "sha256": "818eec792e1c2889d9af6a4da47a2fa3841a2642ecdd8699bc025dea99905e20"
-    },
-    {
-      "path": "SKILL.md",
-      "bytes": 7953,
-      "sha256": "0e037f8cdf2e33b03f87f8dcf39ced14a3d2e083b5e941f1fdf8969d1018cb60"
-    },
-    {
-      "path": "VERSION",
-      "bytes": 7,
-      "sha256": "74c8dcd895e1272a4276c6ceba0b4a0a8d97ff7b1ac9119b8f7a78685e5c45b1"
-    },
     {
       "path": "agents/openai.yaml",
       "bytes": 466,
       "sha256": "f664122e92bfeb6ab0255d83f3ef803b2505f049dc9ba2107bea509afe49e82b"
     },
     {
+      "path": "assets/references/参考PDF/封面目录正文备考表示例.pdf",
+      "bytes": 453561,
+      "sha256": "3356dc0bd506244c7602f279d68950eafbbd1a9e3471653b5ef1ba25460929af"
+    },
+    {
+      "path": "assets/references/封面排版参考.png",
+      "bytes": 421914,
+      "sha256": "30efcdc4e061b475ecbcf4a2c1446589e404914ab8ec7f0a888a6a8dc3e24cba"
+    },
+    {
+      "path": "assets/references/已整理三级目录示例.xlsx",
+      "bytes": 318599,
+      "sha256": "c60a5c8c212d019de46beded327be6a156ef44794fcb841c34abd0117e391da6"
+    },
+    {
+      "path": "assets/references/建设项目档案管理办法.docx",
+      "bytes": 539509,
+      "sha256": "09db045b6f26b82edef17119346f9a0d0639ccd748e12e89bb2ca1cacdf2519e"
+    },
+    {
+      "path": "assets/templates/layout.json",
+      "bytes": 148543,
+      "sha256": "c8cae83dd4c85aab55d5f08164c739a875e8b9ac7ed42e804fb1e87eed705771"
+    },
+    {
+      "path": "assets/templates/三级目录空表.xlsx",
+      "bytes": 13369,
+      "sha256": "8bf7bdfaaeaf57e61ac17327263695d5aa10b69af591b371092454596a3e3bee"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2221,
+      "sha256": "0bf82faa55022072196e773bc542b590af3360e777df139fc2a4f180473df950"
+    },
+    {
       "path": "references/incremental.md",
-      "bytes": 9006,
-      "sha256": "a486dbe9aa69f14d57ff6246a907b647a6858eacaf90986ba7b8d843c609c5bf"
+      "bytes": 9014,
+      "sha256": "c4cfcab746cb8c69221d5c947237a0295aee8cd4a5cb6cb0bd78acd53dc4128c"
+    },
+    {
+      "path": "references/raw-images.md",
+      "bytes": 3477,
+      "sha256": "cc5dea35a26335080c20b162c9dd225636c015e2fa175a3980c6b2acf1ec27e4"
     },
     {
       "path": "references/workflow.md",
@@ -59,9 +84,14 @@
       "sha256": "5d598b32cdab249ec87a870d1b6b4b4b95c0663e760597fa19d12e8beb5c06c5"
     },
     {
+      "path": "scripts/complete_structure.py",
+      "bytes": 4403,
+      "sha256": "70f07237e2067ee928d2afdbd8dcdc752fc9318765360179970ca5924c529218"
+    },
+    {
       "path": "scripts/doctor.py",
-      "bytes": 1538,
-      "sha256": "faf4355cb09b2fff44baa25e97f75e0718d3686890a3cbb6b0145c8a5d397891"
+      "bytes": 1491,
+      "sha256": "910c2ef50dbf25c0036a1aa5ca0faf621b3ce09ee6c4f90eaca944dd1b2522c4"
     },
     {
       "path": "scripts/import_legacy.py",
@@ -75,13 +105,18 @@
     },
     {
       "path": "scripts/prepare.py",
-      "bytes": 5436,
-      "sha256": "51873a4b7ef954c44065782a3fabf6c8f3c665c8f830095f968e6d1aa4f2c577"
+      "bytes": 6992,
+      "sha256": "7fb6db82b4d43b969a55e25349dc0016b30d9ddf33a7ee43c2bea5892fc5daf8"
     },
     {
       "path": "scripts/print_settings.py",
       "bytes": 2330,
       "sha256": "860e1dcbf7cd7ae845eeadefe6295ec107f0b182365f2da921d705f898d1becd"
+    },
+    {
+      "path": "scripts/raw_images.py",
+      "bytes": 4233,
+      "sha256": "22ac837037ae8d094887d800c60afc25fb8c4f5ed3373d89506a2a7fe88eadff"
     },
     {
       "path": "scripts/requirements.txt",
@@ -94,9 +129,19 @@
       "sha256": "9a492b815bc3e709c14b570f982c23930d55654c7e32920817c9f0d0445b2244"
     },
     {
+      "path": "SKILL.md",
+      "bytes": 7952,
+      "sha256": "ce0bfd73046f16f8852bfbf4b2bca97581c998b8397082b34d98fb2f3e96a37c"
+    },
+    {
       "path": "tests/README.md",
       "bytes": 823,
       "sha256": "79933eed4582b3e30225f1d3cf42cdad47631d212dd52704e53f9d63c7f57529"
+    },
+    {
+      "path": "tests/test_raw_images.py",
+      "bytes": 3454,
+      "sha256": "37262db35477b7056f742670ea1daaa5af7b771c60ad1e78f0f664e4a7b9ca16"
     },
     {
       "path": "tests/test_workflows.py",
@@ -104,84 +149,9 @@
       "sha256": "6f1a7b28c01552aa59a9ab93b9bab3961221bd391be8987cefd2c71249000ca2"
     },
     {
-      "path": "assets/references/原始三级目录示例.xlsx",
-      "bytes": 3095875,
-      "sha256": "aac2b32a1b6a0f1b1d74c9c553bfac47c0c6112591636058e5b93e11082b3d05"
-    },
-    {
-      "path": "assets/references/封面排版参考.png",
-      "bytes": 421914,
-      "sha256": "30efcdc4e061b475ecbcf4a2c1446589e404914ab8ec7f0a888a6a8dc3e24cba"
-    },
-    {
-      "path": "assets/references/已整理三级目录示例.xlsx",
-      "bytes": 318599,
-      "sha256": "c60a5c8c212d019de46beded327be6a156ef44794fcb841c34abd0117e391da6"
-    },
-    {
-      "path": "assets/references/建设项目档案管理办法.docx",
-      "bytes": 539509,
-      "sha256": "09db045b6f26b82edef17119346f9a0d0639ccd748e12e89bb2ca1cacdf2519e"
-    },
-    {
-      "path": "assets/templates/layout.json",
-      "bytes": 148543,
-      "sha256": "c8cae83dd4c85aab55d5f08164c739a875e8b9ac7ed42e804fb1e87eed705771"
-    },
-    {
-      "path": "assets/templates/三级目录空表.xlsx",
-      "bytes": 13369,
-      "sha256": "8bf7bdfaaeaf57e61ac17327263695d5aa10b69af591b371092454596a3e3bee"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-001.pdf",
-      "bytes": 30635487,
-      "sha256": "7d3377554b019e022f5f03de326ebae1574d3e71ca94af1d9cd7c92ea55c070b"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-002.pdf",
-      "bytes": 79965314,
-      "sha256": "a5375a4788000af9df44b7c2e0f911cf3038d121786d0120aadefd063e22dcb1"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-003.pdf",
-      "bytes": 73124650,
-      "sha256": "6c68c1488190cd53c15788596f321598ddfaa73e232502c9f7a21390641f6b38"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-004.pdf",
-      "bytes": 82586565,
-      "sha256": "a8c7a5b67a909af20d0b35901bd8780d743d5535a2422b2c77bf3bf8f69df384"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-005.pdf",
-      "bytes": 29538274,
-      "sha256": "43fc34bbfa6327b16418a029c6e166f22cdafc291ceef9aec22adb0ce364b61d"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-006.pdf",
-      "bytes": 89049405,
-      "sha256": "3af1c8a129e87684315f0e7f30ac926c337722e028bbc59f402b4a3653964e33"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-007.pdf",
-      "bytes": 103807550,
-      "sha256": "0830b139d45e81c63c20ae318ed97d08c07fb33531f5686e4c7a9cc5680fa3c4"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-008.pdf",
-      "bytes": 70375668,
-      "sha256": "db2315dcd8a00ddb914c0ddfcb65bde1cf444e4be8914015cc8a7894d5349525"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-009.pdf",
-      "bytes": 117323119,
-      "sha256": "cc14e36bf51e804510f598dfb39dea4b164c732013efe312ffbe47b098b9897d"
-    },
-    {
-      "path": "assets/references/参考PDF/SIGJ-JS01-0083-010.pdf",
-      "bytes": 104294672,
-      "sha256": "5aa72a00e73eb569b2ad802696e2ca4a36aecbed3cea488006bc1cc87495430f"
+      "path": "VERSION",
+      "bytes": 7,
+      "sha256": "a64708b010e2bcf628154ddc205ed49688a6347ef93a66a42492430f63f021b1"
     }
   ]
 }
