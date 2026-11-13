@@ -73,6 +73,18 @@ def validate(m,base):
   if not v['title'].startswith(project['name']):v['title']=project['name']+v['title']
   sources.append(src)
  return m
+def directory_page_ref(file,last,body_count):
+ """Format catalog page references without confusing original and electronic systems."""
+ raw=str(file['page_ref']);match=re.fullmatch(r'(\d+)(?:[-—－至](\d+))?',raw.strip())
+ if not match:return raw
+ start=match.group(1)
+ if not last:return start
+ if match.group(2):return start+'-'+match.group(2)
+ if file.get('page_ref_system','original')=='electronic':return start+'-'+str(body_count)
+ end=file.get('original_end_page')
+ if end is not None:return start+'-'+str(end)
+ return start+'-末页待核对'
+
 def payload(m):
  layout=load(SKILL/'assets/templates/layout.json');front=copy.deepcopy(layout['front']);p=m['project'];n=len(m['volumes']);today=p.get('date',datetime.date.today().isoformat());counts={x:sum(v['retention']==x for v in m['volumes'])for x in['永久','30年','10年']}
  v=front['移交清单']['values'];v[1][0]=f"单位：{p.get('transfer_unit',p['company'])}　编制日期：{today}";v[2][1]=p['name'];v[2][3]=p['type'];v[6][3]=f'{n}卷';v[4][1]=p.get('start_date','待确认');v[4][3]=p.get('completion_date','待确认');v[5][1]=p.get('owner','待确认');v[5][3]=p.get('supervisor','待确认');v[6][1]=p.get('contract_amount','待确认')
@@ -85,7 +97,7 @@ def payload(m):
  parts=p['archive_code'].split('-');volrows=[];filerows=[]
  for v in m['volumes']:
   volrows.append([parts[0],parts[-1],p['archive_code'],v['volume_no'],v['code'],p['short_name'],v['title'],len(v['body_pages']),v['retention'],v.get('period',''),v.get('compiler',p.get('compiler','')),v['creator'],v.get('filing_person',''),v.get('checker',''),v.get('notes',''),v.get('remarks',''),v.get('is_in_store',''),v.get('destruction','')])
-  for i,f in enumerate(v['files'],1):filerows.append([parts[0],str(i).zfill(3),p['archive_code'],v['volume_no'],v['code'],f.get('number',''),f['title'],f.get('date',''),f['page_ref'],f['retention'],f['creator'],f.get('company',p['company']),f.get('notes','')])
+  for i,f in enumerate(v['files'],1):filerows.append([parts[0],str(i).zfill(3),p['archive_code'],v['volume_no'],v['code'],f.get('number',''),f['title'],f.get('date',''),directory_page_ref(f,i==len(v['files']),len(v['body_pages'])),f['retention'],f['creator'],f.get('company',p['company']),f.get('notes','')])
  data={'项目级':{'headers':layout['headers']['项目级'],'rows':[[parts[0],parts[-1],p['archive_code'],'-'.join(parts[1:-1]),p['name'],p['short_name'],p.get('notes','')]]},'案卷级':{'headers':layout['headers']['案卷级'],'rows':volrows},'卷内级':{'headers':layout['headers']['卷内级'],'rows':filerows}}
  for sheet,cells in p.get('front_overrides',{}).items():
   for cell,value in cells.items():

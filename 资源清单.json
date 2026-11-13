@@ -1,6 +1,6 @@
 {
   "skill": "construction-archive-organizer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "reference_PDF_count": 10,
   "files": [
     {
@@ -10,13 +10,13 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 6940,
-      "sha256": "bf004c165e8ed9e7665fdbd347f784ba78f8aa7ab05cbf3c54d84242ccee86c3"
+      "bytes": 7953,
+      "sha256": "0e037f8cdf2e33b03f87f8dcf39ced14a3d2e083b5e941f1fdf8969d1018cb60"
     },
     {
       "path": "VERSION",
       "bytes": 7,
-      "sha256": "6ca2e3356014241331fb2b399428fca23c558e3f3d428edcf4f56eb0fe907069"
+      "sha256": "74c8dcd895e1272a4276c6ceba0b4a0a8d97ff7b1ac9119b8f7a78685e5c45b1"
     },
     {
       "path": "agents/openai.yaml",
@@ -25,13 +25,13 @@
     },
     {
       "path": "references/incremental.md",
-      "bytes": 7993,
-      "sha256": "14726b30eafffe8d4948f7857648828714abafbf2ae4930686fd158d525ff390"
+      "bytes": 9006,
+      "sha256": "a486dbe9aa69f14d57ff6246a907b647a6858eacaf90986ba7b8d843c609c5bf"
     },
     {
       "path": "references/workflow.md",
-      "bytes": 8209,
-      "sha256": "715ce183eb0270e4cf5f9b3a9169008117b9ec0d84f978c1c036ab844defa9e7"
+      "bytes": 9222,
+      "sha256": "b754e6228b1b81103a4d0d0b32c094e09ad118df263af187893e9cd15e933641"
     },
     {
       "path": "references/管理办法全文.txt",
@@ -50,8 +50,8 @@
     },
     {
       "path": "scripts/archive_runtime.py",
-      "bytes": 17589,
-      "sha256": "b45e0cbd2cf99134d237dff9e60ef6e1f6162a41a61351fe40eaaab3ee6a3c7a"
+      "bytes": 18203,
+      "sha256": "e39a8fdc2023b6d651f2caec7887dee7bcc39c650d1611fb53c9e29d1993dbb5"
     },
     {
       "path": "scripts/build_workbook.mjs",
